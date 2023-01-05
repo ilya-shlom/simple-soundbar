@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href='/static/style.css'/>
+    <title>Сайт</title>
+    <script>
+        function play(song_addr, i) {
+            var audio = new Audio(song_addr);
+            var x = document.getElementById(`s_${i}`).duration;
+            document.getElementById(i).style.animation = 'tapped--1 200ms ease-out';
+            setTimeout(() => {
+                audio.play();
+                document.getElementById(i).style.animation = 'playing ' + x + 's linear';
+                setTimeout(() => {
+                    document.getElementById(i).style.animation = 'ending 200ms ease-out';
+                }, x * 1000);
+            }, 200);
+        }
+    </script>
+</head>
+<body>
+{%for i in range(amount):%}
+<div class="audioblock" onclick="play('../static/assets/{{i+1}}.mp3', '{{i+1}}');" id="{{i+1}}">
+    <audio src="../static/assets/{{i+1}}.mp3" id="s_{{i+1}}"></audio>
+    <img src="../static/assets/{{i+1}}.jpg" alt="{{i+1}}" class="audioblock"/>
+    <p class="audioblock">{{titles[i]}}</p>
+</div>
+{%endfor%}
+</body>
+</html>

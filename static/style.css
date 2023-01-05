@@ -1,0 +1,71 @@
+body {
+    background: linear-gradient(180deg, #0b5e99 -20.23%, #064466 117.55%) fixed;
+}
+
+div.audioblock {
+    box-sizing: border-box;
+    background: linear-gradient(to left, rgba(217, 217, 217, 0.53) 50%, rgba(101, 101, 101, 0.53) 50%) right;
+    background-size: 200% 100%;
+    border: 3px solid #FFFFFF;
+    box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 23px;
+
+    width: 90%;
+    height: 115px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+    padding-left: 5px;
+    padding-top: 5px;
+    transition: all 300ms;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+img.audioblock {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 16px;
+    float: left;
+}
+
+p.audioblock {
+    color: white;
+    font-family: 'Arial', serif;
+    font-size: 20px;
+
+    object-fit: contain;
+    margin-top: 3%;
+    text-align: center;
+}
+
+
+
+@keyframes tapped--1 {
+    30% {
+        transform: scale(0.98);
+        opacity: 50%;
+    }
+}
+
+@keyframes playing {
+    100% {
+        background-position: left;
+    }
+}
+
+@keyframes ending {
+    0% {
+        background: rgba(101, 101, 101, 0.53);
+    }
+    100% {
+        background: rgba(217, 217, 217, 0.53);
+    }
+    101% {
+        background: linear-gradient(to left, rgba(217, 217, 217, 0.53) 50%, rgba(101, 101, 101, 0.53) 50%) right;
+    }
+}
